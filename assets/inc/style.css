@@ -1,0 +1,507 @@
+/* font-family: 'Azeret Mono', monospace; */
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@200;500;700&display=swap");
+
+/* 
+===================================
+=        Universal Style          =
+===================================
+*/
+
+body{
+    overflow: hidden;
+}
+
+* {
+  margin: 0;
+  font-family: "Azeret Mono", monospace;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --red: red;
+  --green: green;
+  --gold: orange;
+  --gray: #8d8d8d;
+  --blue: #4285f4;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--gray);
+}
+
+p {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--gray);
+}
+
+label{
+  color: var(--gray);
+}
+
+input::placeholder {
+  color: var(--gray);
+  opacity: 1;
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#to-do::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+#to-do {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+ul li .right{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+ul li p{
+    margin-top: -5px;
+}
+
+/* 
+=================================
+=         Body Style            =
+=================================
+*/
+
+#to-do {
+  padding: 40px;
+  height: 100vh;
+  overflow: scroll;
+}
+
+#to-do::before {
+  content: "~ develop by Kushal Sharma";
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+#to-do .heading {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.to-do-container {
+  max-width: 1330px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.to-do-container .left-side {
+  width: 68%;
+  margin-right: 40px;
+  position: relative;
+}
+
+.to-do-container .right-side {
+  width: 32%;
+}
+
+.to-do-container .add-to-do {
+  border: 1px solid var(--gray);
+  padding-left: 20px;
+  display: flex;
+}
+
+.to-do-container .add-to-do .add-btn,
+.to-do-container .pending-todo .add-btn {
+  width: 71px;
+  height: 71px;
+  background: var(--blue);
+  cursor: pointer;
+}
+
+.to-do-container .add-to-do .add-btn img,
+.to-do-container .pending-todo .add-btn img,
+ul li .right img
+{
+  width: 75%;
+  height: auto;
+}
+
+.to-do-container .left-side .pending-task {
+  width: 100%;
+  border: 1px solid var(--black);
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.to-do-container  .to-do-staus-update .to_do_status{
+  display: flex;
+}
+
+.to-do-container .h3 {
+  font-size: 20px;
+}
+
+.to-do-container .pending-todo {
+  border: 1px solid var(--gray);
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  cursor: move;
+}
+
+.to-do-container .pending-todo .right-btn {
+  display: inline-flex;
+  align-items: center;
+}
+
+.to-do-container .pending-todo .status {
+  padding: 8px 15px;
+  border: 1px solid #000;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  margin-right: 20px;
+}
+
+.to-do-container .pending-todo .status.normal {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.to-do-container .pending-todo .status.important {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.to-do-container .pending-todo .status.urgent {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.to-do-container .right-side{
+    padding: 30px;
+    border: 1px solid var(--black);
+    height: 100%;
+}
+
+.to-do-container .pending-task-heading{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 
+===================================
+=       To Do Active Style        =
+===================================
+*/
+
+.to-do-edit{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 999;
+  display: none;
+}
+
+.to-do-edit #update-todo-title{
+  padding: 20px 10px 20px 0;
+}
+
+.to-do-edit.active {
+  display: flex;
+}
+
+.to-do-edit .conatiner{
+  padding: 40px;
+  background: var(--white);
+  max-width: 992px;
+  width: 100%;
+}
+
+.to-do-edit .to-do-status{
+  padding: 30px 0;
+}
+
+.to-do-edit .to-do-status .status{
+  padding: 10px 0 10px 30px
+}
+
+.to-do-edit .to-do-status .current-to-do-status{
+  display: flex;
+  align-items: center;
+}
+
+.to-do-edit .to-do-status .current-to-do-status .dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-left: 8px;
+}
+
+.to-do-edit .to-do-status .current-to-do-status .dot.normal{
+  background: var(--green);
+}
+
+.to-do-edit .to-do-status .current-to-do-status .dot.urgent{
+  background: var(--red);
+}
+
+.to-do-edit .to-do-status .current-to-do-status .dot.important{
+  background: var(--gold);
+}
+
+.to-do-edit .to-do-status .to-do-staus-update,
+.to-do-edit .to-do-status .status-type,
+.to-do-staus-btn
+{
+  display: flex;
+}
+
+.to-do-edit .to-do-status .status-type{
+  margin-top: 5px;
+}
+
+.to-do-edit .to-do-status .to-do-staus-update{
+  margin-left: 10px;
+}
+
+.to-do-delete-update .btn{
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.delete-btn{
+  background: #D8000C;
+}
+
+.update-btn,
+.complete-task-btn{
+  background: var(--blue);
+  color: var(--white);
+  font-weight: bold;
+}
+
+.to-do-delete-update .btn img{
+  max-height: 40px;
+}
+
+.to-do-delete-update{
+  justify-content: space-between;
+}
+
+.todo-hide-text{
+  padding: 30px 90px;
+  text-align: center;
+  line-height: 30px;
+  display: none;
+}
+
+.todo-hide-text.active,
+.complete-todo-empty.active
+{
+  display: block;
+}
+
+.complete-todo-empty{
+  text-align: center;
+  padding: 20px;
+  line-height: 30px;
+  display: none;
+}
+
+.todo-error{
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  width: 84%;
+  padding: 20px;
+  border: 1px solid #721c24;
+  background-color: #f8d7da;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  animation: errorAnime .3s linear;
+  -webkit-animation: errorAnime .3s linear;
+  display: none;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.todo-error p{
+  color: #721c24;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@keyframes errorAnime {
+  0%{
+    margin-top: 50px;
+  }
+  100%{
+    margin-top: 0px;
+  }
+}
+
+.todo-error.active{
+  display: block;
+}
+
+/* 
+============================================
+=            Responsive Style              =
+============================================
+*/
+
+@media screen and (max-width: 1092px){
+  .to-do-container{
+    flex-wrap: wrap;
+  }
+  .to-do-container .left-side{
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .to-do-container .right-side{
+    width: 100%;
+  }
+  .to-do-edit .conatiner{
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 692px){
+  .todo-hide-text{
+    padding: 30px 0;
+  }
+  .to-do-edit .conatiner{
+    padding: 20px;
+  }
+  #to-do .heading{
+    font-size: 2em;
+  }
+  .to-do-container .add-to-do .add-btn, .to-do-container .pending-todo .add-btn{
+    width: 50px;
+    height: 50px;
+  }
+  p, input{
+    font-size: 14px;
+  }
+  .to-do-container .pending-todo .status{
+    padding: 0;
+    width: 10px;
+    height: 10px;
+  }
+  .to-do-container .pending-todo .status span{
+    display: none;
+  }
+  .to-do-container .h3{
+    font-size: 18px;
+  }
+  .to-do-container .pending-todo .status.normal {
+    background: var(--green);
+  }
+  .to-do-container .pending-todo .status.important {
+    background: var(--gold);
+  }
+  .to-do-container .pending-todo .status.urgent {
+    background: var(--red);
+  }
+  .to-do-edit .to-do-status .status {
+    padding: 10px 0 10px 0;
+  }
+  .to-do-edit .to-do-status .to_do_status input{
+    width: 10%;
+  }
+  .to-do-edit .to-do-status .to-do-staus-update{
+    flex-wrap: wrap;
+    margin-top: -17px;
+  }
+  .to-do-edit .to-do-status .to-do-staus-update .to_do_status{
+    width: 100%;
+  }
+  .to-do-edit .to-do-status .status-type{
+    margin-top: 15px;
+  }
+  .to-do-delete-update{
+    flex-flow: column;
+  }
+  .to-do-delete-update p{
+    margin-bottom: 15px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 420px){
+  #to-do{
+    padding: 40px 20px;
+  }
+  .to-do-container .pending-todo{
+    padding-left: 5px;
+  }
+  .to-do-container .pending-todo .status{
+    margin-right: 5px;
+  }
+  .to-do-container .right-side,
+  .to-do-container .left-side .pending-task{
+    padding: 15px;
+  }
+  .complete-todo-empty{
+    padding: 20px 0;
+  }
+}

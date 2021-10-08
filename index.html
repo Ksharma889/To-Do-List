@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To - Do List ~ made by Kushal Sharma</title>
+    <link rel="stylesheet" href="assets/inc/style.css">
+</head>
+
+<body class='body'>
+    <section id="to-do">
+        <div class="conatiner">
+            <div class="heading">To-Do List</div>
+            <div class="to-do-container">
+                <div class="left-side div">
+                    <div class="add-to-do">
+                        <input type="text" name="" id="add-todo" placeholder="Add you're new to do..." maxlength="100">
+                        <div class="add-btn d-flex-center">
+                            <img src="assets/Images/plus.png" alt="">
+                        </div>
+                    </div>
+                    <div class="pending-task">
+                        <div class="pending-task-heading">
+                            <h3 class='h3'>Pending Task's ~</h3>
+                        </div>
+                        <div class="todo-list-area"></div>
+                        <div class="todo-hide-text">
+                            <p>You need to add a new to-do. Your to-do list is empty right now!</p>
+                        </div>
+                    </div>
+                    <div class="todo-error">
+                        <p>First, complete these tasks and then add a new task. Thanks...</p>
+                    </div>
+                </div>
+                <div class="right-side div">
+                    <h3 class='h3'>Recent 5 Completed Tasks ~</h3>
+                    <ul class='completed-list'></ul>
+                    <div class="complete-todo-empty">
+                        <p>You haven't completed any work yet!</p>
+                    </div>
+                </div>
+                <div class="to-do-edit d-flex-center">
+                    <div class="conatiner">
+                        <div class="add-to-do">
+                            <input type="text" name="" id="update-todo-title" value="" maxlength="100">
+                        </div>
+                        <div class="to-do-status">
+                            <h3 class="h3">To-DO Status ~</h3>
+                            <div class="status">
+                                <div class="current-to-do-status">
+                                    <span>current status</span>
+                                    <div class="dot normal"></div>
+                                </div>
+                                <div class="status-type">
+                                    <span>status</span>
+                                    <div class="to-do-staus-update">
+                                          <div class="to_do_status">
+                                            <input type="radio" class="urgent" name="to_do_status" value="urgent">
+                                          <label for="urgent">urgent</label>
+                                        </div>
+                                          <div class="to_do_status">
+                                            <input type="radio" class="important" name="to_do_status" value="important">
+                                          <label for="important">important</label>
+                                        </div>
+                                          <div class="to_do_status">
+                                            <input type="radio" class="normal" name="to_do_status" value="normal" checked>
+                                          <label for="normal">normal</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="to-do-delete-update d-flex-center">
+                            <p>You can delete or complete the task from here</p>
+                            <div class="to-do-staus-btn">
+                                <div class="delete-btn btn"><img src="assets/Images/delete.png" alt=""></div>
+                                <div class="update-btn btn"><img src="assets/Images/check.png" alt=""></div>
+                                <div class="complete-task-btn d-flex-center btn"><span>Task Over</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/inc/app.js"></script>
+    <script>
+        const dragArea = document.querySelector('#to-do .todo-list-area');
+        new Sortable(dragArea, {
+            animation: 350
+        });
+    </script>
+</body>
+
+</html>
