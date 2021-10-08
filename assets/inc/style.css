@@ -173,6 +173,12 @@ ul li .right img
 
 .to-do-container  .to-do-staus-update .to_do_status{
   display: flex;
+  align-items: center;
+}
+
+.to-do-container .to-do-staus-update .to_do_status input{
+  width: 14px;
+  height: 14px;
 }
 
 .to-do-container .h3 {
