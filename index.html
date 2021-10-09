@@ -24,6 +24,13 @@
                     <div class="pending-task">
                         <div class="pending-task-heading">
                             <h3 class='h3'>Pending Task's ~</h3>
+                            <div class="sort-list-option">
+                                <p>Sortable</p>
+                                <label class="switch">
+                                    <input type="checkbox" autocomplete="off">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
                         </div>
                         <div class="todo-list-area"></div>
                         <div class="todo-hide-text">
@@ -90,8 +97,21 @@
     <script src="assets/inc/app.js"></script>
     <script>
         const dragArea = document.querySelector('#to-do .todo-list-area');
-        new Sortable(dragArea, {
-            animation: 350
+        const SortSwitch = document.querySelector('.sort-list-option .switch');
+        let sortable = new Sortable(dragArea, {
+            animation: 350,
+            sort: false,
+            disabled: false
+        });
+        SortSwitch.children[0].removeAttribute('checked');
+        SortSwitch.children[1].addEventListener('click', ()=>{
+            if(SortSwitch.children[0].checked){
+                sortable.option('sort', false, 'disabled', false);
+                dragArea.classList.remove('ready-to-sort');
+            }else{
+                sortable.option('sort', true, 'disabled', true);
+                dragArea.classList.add('ready-to-sort');
+            }
         });
     </script>
 </body>
